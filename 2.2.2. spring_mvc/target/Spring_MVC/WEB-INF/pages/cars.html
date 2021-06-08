@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>cars</title>
+    <style>
+        table th, table td {padding: 10px;}
+        .row  {
+            font-style: oblique;
+        }
+        .even-row {
+            color: darkblue;
+        }
+        .odd-row {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Car list</h1>
+<table border="2">
+    <tr>
+        <th>No</th>
+        <th>Model</th>
+        <th>Series</th>
+        <th>Color</th>
+    </tr>
+    <tr th:each="car, state : ${cars}"
+        class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+        <td th:utext="${state.count}">No</td>
+        <td th:utext="${car.model}">Model</td>
+        <td th:utext="${car.series}">Series</td>
+        <td th:utext="${car.color}">Color</td>
+    </tr>
+</table>
+</body>
+</html>
+
